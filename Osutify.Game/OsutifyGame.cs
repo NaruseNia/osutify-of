@@ -1,26 +1,42 @@
 ﻿using osu.Framework.Allocation;
 using osu.Framework.Graphics;
+using osu.Framework.IO.Stores;
 using osu.Framework.Screens;
+using Osutify.Resources;
 
-namespace Osutify.Game
+namespace Osutify.Game;
+
+public partial class OsutifyGame : OsutifyGameBase
 {
-    public partial class OsutifyGame : OsutifyGameBase
+    private ScreenStack screenStack;
+
+    [BackgroundDependencyLoader]
+    private void load()
     {
-        private ScreenStack screenStack;
-
-        [BackgroundDependencyLoader]
-        private void load()
+        Resources.AddStore(new DllResourceStore(OsutifyResources.ResourceAssembly));
         {
-            // Add your top-level game components here.
-            // A screen stack and sample screen has been provided for convenience, but you can replace it if you don't want to use screens.
-            Child = screenStack = new ScreenStack { RelativeSizeAxes = Axes.Both };
+            initializeFonts();
         }
 
-        protected override void LoadComplete()
-        {
-            base.LoadComplete();
+        Child = screenStack = new ScreenStack { RelativeSizeAxes = Axes.Both };
+    }
 
-            screenStack.Push(new MainScreen());
-        }
+    private void initializeFonts()
+    {
+        AddFont(Resources, @"Fonts/Torus/Torus-Light");
+        AddFont(Resources, @"Fonts/Torus/Torus-Regular");
+        AddFont(Resources, @"Fonts/Torus/Torus-SemiBold");
+        AddFont(Resources, @"Fonts/Torus/Torus-Bold");
+
+        AddFont(Resources, @"Fonts/TorusM/TorusM-Light");
+        AddFont(Resources, @"Fonts/TorusM/TorusM-Regular");
+        AddFont(Resources, @"Fonts/TorusM/TorusM-SemiBold");
+    }
+
+    protected override void LoadComplete()
+    {
+        base.LoadComplete();
+
+        screenStack.Push(new MainScreen());
     }
 }

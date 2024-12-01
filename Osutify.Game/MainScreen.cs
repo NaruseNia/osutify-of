@@ -3,35 +3,35 @@ using osu.Framework.Graphics;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Graphics.Sprites;
 using osu.Framework.Screens;
+using Osutify.Game.Graphics;
 using osuTK.Graphics;
 
-namespace Osutify.Game
+namespace Osutify.Game;
+
+public partial class MainScreen : Screen
 {
-    public partial class MainScreen : Screen
+    [BackgroundDependencyLoader]
+    private void load()
     {
-        [BackgroundDependencyLoader]
-        private void load()
+        InternalChildren = new Drawable[]
         {
-            InternalChildren = new Drawable[]
+            new Box
             {
-                new Box
-                {
-                    Colour = Color4.Violet,
-                    RelativeSizeAxes = Axes.Both,
-                },
-                new SpriteText
-                {
-                    Y = 20,
-                    Text = "Main Screen",
-                    Anchor = Anchor.TopCentre,
-                    Origin = Anchor.TopCentre,
-                    Font = FontUsage.Default.With(size: 40)
-                },
-                new SpinningBox
-                {
-                    Anchor = Anchor.Centre,
-                }
-            };
-        }
+                Colour = Color4.Violet,
+                RelativeSizeAxes = Axes.Both
+            },
+            new SpriteText
+            {
+                Y = 20,
+                Text = "Main Screenだよ",
+                Anchor = Anchor.TopCentre,
+                Origin = Anchor.TopCentre,
+                Font = OsutifyFont.Default.With(size: 40)
+            },
+            new SpinningBox
+            {
+                Anchor = Anchor.Centre
+            }
+        };
     }
 }

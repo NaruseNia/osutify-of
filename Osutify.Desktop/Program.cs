@@ -8,9 +8,9 @@ namespace Osutify.Desktop
     {
         public static void Main()
         {
-            using (GameHost host = Host.GetSuitableDesktopHost(@"Osutify"))
-            using (osu.Framework.Game game = new OsutifyGame())
-                host.Run(game);
+            using GameHost host = Host.GetSuitableDesktopHost(@"Osutify");
+            using osu.Framework.Game game = new OsutifyGame();
+            host.Run(game);
         }
     }
 }
