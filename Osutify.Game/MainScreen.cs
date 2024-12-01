@@ -23,7 +23,7 @@ public partial class MainScreen : Screen
             new SpriteText
             {
                 Y = 20,
-                Text = "Main Screenだよ",
+                Text = "Main Screen",
                 Anchor = Anchor.TopCentre,
                 Origin = Anchor.TopCentre,
                 Font = OsutifyFont.Default.With(size: 40)
