@@ -1,0 +1,11 @@
+﻿{
+  "solution": {
+    "path": "Osutify.sln",
+    "projects": [
+      "Osutify.Desktop\\Osutify.Desktop.csproj",
+      "Osutify.Game\\Osutify.Game.csproj",
+      "Osutify.Game.Tests\\Osutify.Game.Tests.csproj",
+      "Osutify.Resources\\Osutify.Resources.csproj"
+    ]
+  }
+}
